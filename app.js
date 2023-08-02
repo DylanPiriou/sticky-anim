@@ -26,40 +26,45 @@ gsap.to(square, {
         ease: "linear"
     },
     width: "100%",
-    height: "101%",
+    height: "120vh",
     ease: Power4.ease
 })
 
 const title = document.querySelector(".title__container")
+const sectWrapper = document.querySelector(".section__wrapper")
 gsap.to(title, {
     scrollTrigger: {
-        trigger: section,
+        trigger: sectWrapper,
         scrub: true,
-        start: "top 5%",
-        end: "bottom 70%"
+        start: "top top",
+        end: "bottom 60%",
+        ease: "linear",
+        markers: true
     },
-    y: "-50%",
-    ease: "linear"
+    y: "-50%"
 });
 
-const h1 = document.querySelector("h1");
+
+// const titles = document.querySelectorAll(".overed");
 const cursor = document.querySelector(".cursor")
 
-h1.addEventListener("mouseover", () => {
-    gsap.to(cursor, {
-        width: 400,
-        height: 400,
-        ease: Power2.ease
-    })
-})
+// titles.forEach(title => {
+//     title.addEventListener("mouseover", () => {
+//         gsap.to(cursor, {
+//             scale: 10,
+//             ease: "linear"
+//         })
+//     })
+    
+//     title.addEventListener("mouseleave", () => {
+//         gsap.to(cursor, {
+//             scale: 1,
+//             ease: "linear"
+//         })
+//     })
+// })
 
-h1.addEventListener("mouseleave", () => {
-    gsap.to(cursor, {
-        width: 40,
-        height: 40
-    })
-})
-
+const h1 = document.querySelector("h1")
 window.addEventListener("scroll", () => {
     const scrollAmount = window.scrollY;
     const newPosition = scrollAmount * .3;
@@ -69,5 +74,5 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("mousemove", e => {
     let { pageX, pageY } = e;
-    gsap.set(cursor,{x :pageX - cursor.getBoundingClientRect().width / 2 ,y :pageY - cursor.getBoundingClientRect().width / 2})
+    gsap.set(cursor, { x: pageX - cursor.getBoundingClientRect().width / 2, y: pageY - cursor.getBoundingClientRect().width / 2 })
 })
