@@ -78,13 +78,29 @@ window.addEventListener("mousemove", e => {
 
 const horizontalsection = document.querySelector(".horizontal__section")
 const carousselWrapper = document.querySelector(".caroussel__wrapper")
+let sections = gsap.utils.toArray(".work");
+console.log(sections.length)
 
-gsap.to(carousselWrapper, {
+let scrollTween = gsap.to(sections, {
     scrollTrigger: {
         trigger: horizontalsection,
         scrub: 1,
         pin: true
     },
-    x: "-=400vw",
+    xPercent: -100 * (sections.length - 1),
     ease: "none"
 });
+
+const images = document.querySelectorAll(".parallax__img")
+images.forEach(img => {
+    gsap.to(img, {
+        x: "25%",
+        scale: 1.1,
+        ease: "none",
+        scrollTrigger: {
+            trigger: img,
+            containerAnimation: scrollTween,
+            scrub: true
+        }
+    })
+})
