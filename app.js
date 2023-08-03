@@ -13,7 +13,7 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 const square = document.querySelector(".square");
-const section = document.querySelector("section")
+const section = document.querySelector(".sticky__section")
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.to(square, {
@@ -38,8 +38,7 @@ gsap.to(title, {
         scrub: true,
         start: "top top",
         end: "bottom 60%",
-        ease: "linear",
-        markers: true
+        ease: "linear"
     },
     y: "-50%"
 });
@@ -55,7 +54,7 @@ const cursor = document.querySelector(".cursor")
 //             ease: "linear"
 //         })
 //     })
-    
+
 //     title.addEventListener("mouseleave", () => {
 //         gsap.to(cursor, {
 //             scale: 1,
@@ -76,3 +75,16 @@ window.addEventListener("mousemove", e => {
     let { pageX, pageY } = e;
     gsap.set(cursor, { x: pageX - cursor.getBoundingClientRect().width / 2, y: pageY - cursor.getBoundingClientRect().width / 2 })
 })
+
+const horizontalsection = document.querySelector(".horizontal__section")
+const carousselWrapper = document.querySelector(".caroussel__wrapper")
+
+gsap.to(carousselWrapper, {
+    scrollTrigger: {
+        trigger: horizontalsection,
+        scrub: 1,
+        pin: true
+    },
+    x: "-=400vw",
+    ease: "none"
+});
