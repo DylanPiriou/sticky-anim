@@ -66,7 +66,7 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: orangered;
+    background: orange;
 }
 
 .section__wrapper{
@@ -88,12 +88,11 @@ span{
 .square{
     width: 0%;
     height: 0%;
-    background: orange;
+    background: orangered;
 }
 
 .horizontal__section{
-    /* height: 100vh; */
-    background: red;
+    background: orangered;
 }
 
 .caroussel__wrapper{
@@ -108,11 +107,6 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.work:nth-child(2),
-.work:nth-child(4){
-    background: cyan;
 }
 
 .img__container{
